@@ -38,7 +38,7 @@ function runMediainfo (filepath) {
       binary_name = 'mediainfo-linux'
       break
   }
-  let mediainfo = path.join(__dirname, `node_modules/.bin/${binary_name}`)
+  let mediainfo = path.join(__dirname, `node_modules/mediainfo/bin/${binary_name}`)
   return execSync(`${mediainfo} --Output=XML --Full "${filepath}"`).toString()
 }
 
