@@ -27,14 +27,16 @@ export function reduce(state = {}, action) {
       //Video resolution
       const width = newState.videoWidth;
       const height = newState.videoHeight;
-      if (width >= 720 || height >= 1280) {
+      if (width > 4096 || height > 2160) {
+        newState.videoResolutionStatus = 'bad';
+      } else if (width >= 1280 || height >= 720) {
         newState.videoResolutionStatus = 'perfect';
-      } else if (width >= 360 || height >= 640) {
+      } else if (width >= 640 || height >= 360) {
         newState.videoResolutionStatus = 'great';
       } else {
         newState.videoResolutionStatus = 'nice';
       }
-
+      
       //Video scantype
       newState.videoScanTypeStatus = newState.videoScanType === 'Progressive' ? 'perfect' : 'nice';
 
