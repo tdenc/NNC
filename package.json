@@ -6,7 +6,7 @@
   "scripts": {
     "start": "gulp build && electron .",
     "build": "gulp",
-    "pack": "gulp build && electron-packager . nnc --out=dist --platform=all --version=1.4.8 --overwrite --prune --ignore=dist"
+    "pack": "gulp build && electron-packager . nnc --out=dist --icon=icons/nnc --platform=darwin,win32,linux --arch=all --version=1.4.8 --overwrite --prune"
   },
   "author": "tdenc",
   "license": "GPL-2.0",
