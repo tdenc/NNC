@@ -4,8 +4,9 @@
   "description": "",
   "main": "build/main.js",
   "scripts": {
-    "start": "electron .",
-    "pack": "electron-packager . nnc --out=dist --platform=all --version=1.4.8 --overwrite --prune --ignore=dist"
+    "start": "gulp build && electron .",
+    "build": "gulp",
+    "pack": "gulp build && electron-packager . nnc --out=dist --platform=all --version=1.4.8 --overwrite --prune --ignore=dist"
   },
   "author": "tdenc",
   "license": "GPL-2.0",
