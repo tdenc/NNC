@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "pack": "electron-packager . nnc --out=dist --platform=all --version=1.4.8 --overwrite --prune --ignore=dist"
+    "pack": "electron-packager . nnc --icon=icons/nnc --out=dist --platform=all --arch=all --version=1.4.8 --overwrite --prune --ignore=dist"
   },
   "author": "tdenc",
   "license": "GPL-2.0",
