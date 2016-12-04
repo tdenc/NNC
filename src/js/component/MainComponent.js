@@ -35,7 +35,7 @@ export class MainComponent extends React.Component {
           <Header.Content>
             NNC
             <Header.Subheader>
-              なんか… ニコニコのあれ… チェックするやつ
+              NicoNico NewFormat Checker
             </Header.Subheader>
           </Header.Content>
         </Header>
