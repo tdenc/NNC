@@ -1,3 +1,6 @@
+/**
+ * Created by tottokotkd on 2016/12/04.
+ */
 "use strict";
 
 const electron = require('electron')
@@ -38,8 +41,9 @@ function runMediainfo (filepath) {
       binary_name = 'mediainfo-linux'
       break
   }
-  let mediainfo = path.join(__dirname, `node_modules/mediainfo/bin/${binary_name}`)
+  let mediainfo = path.join(__dirname, `../${binary_name}`)
   return execSync(`${mediainfo} --Output=XML --Full "${filepath}"`).toString()
+  // return execSync(`${binary_name} --Output=XML --Full "${filepath}"`).toString()
 }
 
 function getClass (element, name, multi) {
@@ -55,7 +59,7 @@ function getValue (xml, type, value) {
   return element[0].toString()
 }
 
-function openMovie () {
+export function openMovie () {
   let filePaths = chooseFile()
   if (!filePaths) {
     return
@@ -225,4 +229,6 @@ function openMovie () {
     }
   })
 }
+
+module.exports.openMovie = openMovie
 
