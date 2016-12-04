@@ -17,7 +17,7 @@ export const config = {
     src: [src + '/js/**'],
     base: src + '/js/',
     dest: dest,
-    presets: ["es2015", "react"]
+    presets: ["es2015", "react", "stage-0"]
   },
   binary: {
     src: './lib/mediainfo/bin/mediainfo-*',
