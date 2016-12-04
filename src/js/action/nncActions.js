@@ -3,6 +3,7 @@ import {execSync} from 'child_process'
 import * as path from 'path'
 import {DOMParser} from 'xmldom';
 import * as xpath from 'xpath';
+import {shell} from 'electron';
 
 import * as ActionType from '../constant/ActionType'
 
@@ -84,5 +85,13 @@ export function showOpenDialog() {
   return (dispatch) => {
     const win = remote.BrowserWindow.getFocusedWindow();
     return remote.dialog.showOpenDialog(win, options, paths => dispatch(mediainfo(paths)));
+  }
+}
+
+export function openLink(url) {
+  shell.openExternal(url);
+  return {
+    type: ActionType.OPEN_LINK,
+    url: url
   }
 }
