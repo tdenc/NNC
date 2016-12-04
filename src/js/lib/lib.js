@@ -128,9 +128,11 @@ export function openMovie () {
   let width = getValue(doc, 'Video', 'Width')
   let height = getValue(doc, 'Video', 'Height')
   vr_value.innerHTML = `${width} x ${height}`
-  if (width >= 720 || height >= 1280) {
+  if (width > 4096 || height > 2160) {
+    vr_rating.setAttribute('server', 'bad')
+  } else if (width >= 1280 || height >= 720) {
     vr_rating.setAttribute('server', 'perfect')
-  } else if (width >= 360 || height >= 640) {
+  } else if (width >= 640 || height >= 360) {
     vr_rating.setAttribute('server', 'great')
   } else {
     vr_rating.setAttribute('server', 'nice')
