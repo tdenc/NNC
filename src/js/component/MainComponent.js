@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Header, Table, Icon, Segment, Divider, Dropdown, Menu, Button } from 'semantic-ui-react'
+import { Container, Header, Table, Icon, Segment, Divider, Button } from 'semantic-ui-react'
 
 export class MainComponent extends React.Component {
   row(title, value, status) {

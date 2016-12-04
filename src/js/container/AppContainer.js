@@ -3,13 +3,8 @@ import { connect } from 'react-redux'
 import * as nncActions from '../action/nncActions'
 import { MainComponent } from '../component/MainComponent'
 
-
-
 const mapStateToProps = (state) => {
   return state;
-  // return {
-  //   todos: getVisibleTodos(state.todos, state.visibilityFilter)
-  // }
 };
 
 function mapDispatchToProps(dispatch) {
