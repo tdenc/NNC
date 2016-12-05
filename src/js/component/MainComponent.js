@@ -62,7 +62,7 @@ export class MainComponent extends React.Component {
             {this.row('スキャンタイプ', this.props.videoScanType, this.props.videoScanTypeStatus)}
             {this.row('映像ビットレート', videoBitRate, this.props.videoBitRateStatus)}
             {this.row('映像フレームレートモード', this.props.videoFrameRateMode, this.props.videoFrameRateModeStatus)}
-            {this.row('映像フレームレート', this.props.videoFrameRate, this.props.videoFrameRateStatus)}
+            {this.row('映像フレームレート', videoFrameRate, this.props.videoFrameRateStatus)}
             {this.row('音声フォーマット', this.props.audioFormat, this.props.audioFormatStatus)}
             {this.row('音声ビットレート', audioBitRate, this.props.audioBitRateStatus)}
             {this.row('音声チャンネル数', audioChannel, this.props.audioChannelStatus)}
