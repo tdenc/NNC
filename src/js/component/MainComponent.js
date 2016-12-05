@@ -11,7 +11,7 @@ export class MainComponent extends React.Component {
       return {color: 'orange', icons: ['star', 'empty star', 'empty star']}
     } else if (status === 'bad') {
       return {color: 'red', icons: ['empty star', 'empty star', 'empty star']}
-    }else {
+    } else {
       return {color: 'grey', icons: ['empty star', 'empty star', 'empty star']}
     }
   }
