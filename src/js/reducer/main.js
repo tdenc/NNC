@@ -42,6 +42,13 @@ export function reduce(state = {}, action) {
 
       //Video bitrate
       newState.videoBitRateStatus = newState.videoBitRate >= 2000 ? 'perfect' : 'great';
+      if (newState.videoBitRate >= 2000) {
+        newState.videoBitRateStatus = 'perfect';
+      } else if (newState.videoBitRate >= 1000) {
+        newState.videoBitRateStatus = 'great';
+      } else {
+        newState.videoBitRateStatus = 'nice';
+      }
 
       //Audio format
       newState.audioFormatStatus = newState.audioFormat === 'AAC' ? 'perfect' : 'great';
