@@ -49,6 +49,16 @@ export function reduce(state = {}, action) {
         newState.videoBitRateStatus = 'nice';
       }
 
+      //Video framerate
+      newState.videoFrameRateModeStatus = newState.videoFrameRateMode === 'CFR' ? 'perfect' : 'nice';
+      if (newState.videoFrameRate >= 60) {
+        newState.videoFrameRateStatus = 'bad';
+      } else if (newState.videoFrameRate == 30 || newState.videoFrameRate == 24) {
+        newState.videoFrameRateStatus = 'perfect';
+      } else {
+        newState.videoFrameRateStatus = 'nice';
+      }
+
       //Audio format
       newState.audioFormatStatus = newState.audioFormat === 'AAC' ? 'perfect' : 'great';
 
