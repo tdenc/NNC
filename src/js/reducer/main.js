@@ -51,7 +51,7 @@ export function reduce(state = {}, action) {
 
       //Video framerate
       newState.videoFrameRateModeStatus = newState.videoFrameRateMode === 'CFR' ? 'perfect' : 'nice';
-      if (newState.videoFrameRate >= 60) {
+      if (newState.videoFrameRate > 60) {
         newState.videoFrameRateStatus = 'bad';
       } else if (newState.videoFrameRate == 30 || newState.videoFrameRate == 24) {
         newState.videoFrameRateStatus = 'perfect';
