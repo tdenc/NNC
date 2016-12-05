@@ -51,12 +51,12 @@ export function reduce(state = {}, action) {
 
       //Video framerate
       newState.videoFrameRateModeStatus = newState.videoFrameRateMode === 'CFR' ? 'perfect' : 'nice';
-      if (newState.videoFrameRate >= 60) {
+      if (newState.videoFrameRate > 60) {
         newState.videoFrameRateStatus = 'bad';
       } else if (newState.videoFrameRate == 30 || newState.videoFrameRate == 24) {
         newState.videoFrameRateStatus = 'perfect';
       } else {
-        newState.videoFrameRateStatus = 'nice';
+        newState.videoFrameRateStatus = 'great';
       }
 
       //Audio format
@@ -66,7 +66,7 @@ export function reduce(state = {}, action) {
       const audioBitRate = newState.audioBitRate;
       if (audioBitRate >= 192) {
         newState.audioBitRateStatus = 'perfect';
-      } else if (audioBitRate >= 128) {
+      } else if (audioBitRate >= 90) {
         newState.audioBitRateStatus = 'great';
       } else {
         newState.audioBitRateStatus = 'nice';
