@@ -43,6 +43,7 @@ export class MainComponent extends React.Component {
     const duration = this.props.fileDurationStatus ? this.time(this.props.fileDuration) : '';
     const resolution = this.props.videoResolutionStatus ? `${this.props.videoWidth} x ${this.props.videoHeight}` : '';
     const videoBitRate = this.props.videoBitRateStatus ? `${Math.floor(this.props.videoBitRate)}kbps` : '';
+    const videoFrameRate = this.props.videoFrameRateStatus ? `${this.props.videoFrameRate}fps` : '';
     const audioBitRate = this.props.audioBitRateStatus ? `${Math.floor(this.props.audioBitRate)}kbps` : '';
     const audioChannel = this.props.audioChannelStatus ? `${this.props.audioChannel}チャンネル` : '';
     const audioSamplingRate = this.props.audioSamplingRateStatus ? `${this.props.audioSamplingRate}Hz` : '';
@@ -79,6 +80,8 @@ export class MainComponent extends React.Component {
             {this.row('解像度', resolution, this.props.videoResolutionStatus)}
             {this.row('スキャンタイプ', this.props.videoScanType, this.props.videoScanTypeStatus)}
             {this.row('映像ビットレート', videoBitRate, this.props.videoBitRateStatus)}
+            {this.row('映像フレームレートモード', this.props.videoFrameRateMode, this.props.videoFrameRateModeStatus)}
+            {this.row('映像フレームレート', videoFrameRate, this.props.videoFrameRateStatus)}
             {this.row('音声フォーマット', this.props.audioFormat, this.props.audioFormatStatus)}
             {this.row('音声ビットレート', audioBitRate, this.props.audioBitRateStatus)}
             {this.row('音声チャンネル数', audioChannel, this.props.audioChannelStatus)}
