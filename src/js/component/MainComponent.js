@@ -62,6 +62,7 @@ export class MainComponent extends React.Component {
         </Header>
         <Container textAlign='center'>
           <Button content='ファイル選択' onClick={this.props.showOpenDialog} />
+          <Button content='推奨形式例' onClick={this.props.showSample} />
         </Container>
         <Table definition fixed selectable>
           <Table.Header>

@@ -89,6 +89,32 @@ export function showOpenDialog() {
   }
 }
 
+export function showSample() {
+  const sample = {
+    fileFormat: 'MPEG-4',
+    fileSize: 50,
+    fileDuration: 180,
+
+    videoFormat: 'AVC',
+    videoWidth : 1280,
+    videoHeight : 720,
+    videoScanType: 'Progressive',
+    videoBitRate: 2000,
+    videoFrameRateMode: 'CFR',
+    videoFrameRate: 30,
+
+    audioFormat: 'AAC',
+    audioBitRate: 256,
+    audioChannel: 2,
+    audioSamplingRate: 44100
+  };
+
+  return {
+    type: ActionType.SHOW_MEDIAINFO_DATA,
+    data: sample
+  }
+}
+
 export function openLink(url) {
   shell.openExternal(url);
   return {
