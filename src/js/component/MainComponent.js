@@ -5,10 +5,10 @@ export class MainComponent extends React.Component {
   starParams(status) {
     if (status === 'perfect') {
       return {color: 'yellow', icons: ['star', 'star', 'star']}
-    } else if (status === 'good') {
-      return {color: 'yellow', icons: ['empty star', 'star', 'star']}
+    } else if (status === 'great') {
+      return {color: 'yellow', icons: ['star', 'star', 'empty star']}
     } else if (status === 'nice') {
-      return {color: 'orange', icons: ['empty star', 'empty star', 'star']}
+      return {color: 'orange', icons: ['star', 'empty star', 'empty star']}
     } else if (status === 'bad') {
       return {color: 'red', icons: ['empty star', 'empty star', 'empty star']}
     }else {
