@@ -45,7 +45,7 @@ export class MainComponent extends React.Component {
     const videoBitRate = this.props.videoBitRateStatus ? `${Math.floor(this.props.videoBitRate)}kbps` : '';
     const videoFrameRate = this.props.videoFrameRateStatus ? `${this.props.videoFrameRate}fps` : '';
     const audioBitRate = this.props.audioBitRateStatus ? `${Math.floor(this.props.audioBitRate)}kbps` : '';
-    const audioChannel = this.props.audioChannelStatus ? `${this.props.audioChannel}チャンネル` : '';
+    const audioChannel = this.props.audioChannelStatus ? `${this.props.audioChannel}ch` : '';
     const audioSamplingRate = this.props.audioSamplingRateStatus ? `${this.props.audioSamplingRate}Hz` : '';
     return (
       <Container text>
