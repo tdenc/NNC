@@ -41,7 +41,6 @@ export function reduce(state = {}, action) {
       newState.videoScanTypeStatus = newState.videoScanType === 'Progressive' ? 'perfect' : 'nice';
 
       //Video bitrate
-      newState.videoBitRateStatus = newState.videoBitRate >= 2000 ? 'perfect' : 'great';
       if (newState.videoBitRate >= 2000) {
         newState.videoBitRateStatus = 'perfect';
       } else if (newState.videoBitRate >= 1000) {
