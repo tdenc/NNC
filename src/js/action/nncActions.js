@@ -12,20 +12,19 @@ function parseXML(xml) {
 }
 
 function mediainfo(paths) {
-  function getMediainfoType(platform) {
+  function getMediainfoPath(platform) {
     switch (process.platform) {
       case 'darwin':
-        return 'mediainfo-osx';
+        return path.join(__dirname, '..' + path.sep + 'mediainfo-osx');
       case 'win32':
-        return 'mediainfo-windows';
+        return path.join(__dirname, '..' + path.sep + 'mediainfo-windows');
       case 'linux':
-        return 'mediainfo-linux';
+        return 'mediainfo';
     }
   }
 
-  function runMediainfo (type, filepath) {
-    const mediainfo = path.join(__dirname, `../${type}`);
-    const result = execSync(`${mediainfo} --Output=XML --Full "${filepath}"`).toString();
+  function runMediainfo (execpath, filepath) {
+    const result = execSync(`"${execpath}" --Output=XML --Full "${filepath}"`).toString();
     const doc = new DOMParser().parseFromString(result);
     const data = {};
 
@@ -42,7 +41,7 @@ function mediainfo(paths) {
     data.videoWidth = getValue('Video', 'Width');
     data.videoHeight  = getValue('Video', 'Height');
     data.videoScanType = getValue('Video', 'Scan_type');
-    data.videoBitRate = getValue('Video', 'Bit_rate');
+    data.videoBitRate = getValue('Video', 'Bit_rate') / 1000;
 
     data.audioFormat = getValue('Audio', 'Format');
     data.audioBitRate = getValue('Audio', 'Bit_rate') / 1000;
@@ -58,14 +57,14 @@ function mediainfo(paths) {
     return {type: ActionType.NO_FILE_SELECTED}
   }
 
-  const mediainfoType = getMediainfoType(process.platform);
-  if (!mediainfoType) {
+  const mediainfoPath = getMediainfoPath(process.platform);
+  if (!mediainfoPath) {
     return {type: ActionType.MEDIAINFO_NOT_FOUND}
   }
 
   return {
     type: ActionType.SHOW_MEDIAINFO_DATA,
-    data: runMediainfo(mediainfoType, paths[0])
+    data: runMediainfo(mediainfoPath, paths[0])
   }
 }
 

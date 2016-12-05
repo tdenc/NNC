@@ -20,7 +20,7 @@ export const config = {
     presets: ["es2015", "react", "stage-0"]
   },
   binary: {
-    src: './lib/mediainfo/bin/mediainfo-*',
+    src: './lib/mediainfo/bin/*',
     dest: dest
   }
 };
