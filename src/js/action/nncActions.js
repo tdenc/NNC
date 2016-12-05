@@ -41,7 +41,7 @@ function mediainfo(paths) {
     data.videoWidth = getValue('Video', 'Width');
     data.videoHeight  = getValue('Video', 'Height');
     data.videoScanType = getValue('Video', 'Scan_type');
-    data.videoBitRate = getValue('Video', 'Bit_rate');
+    data.videoBitRate = getValue('Video', 'Bit_rate') / 1000;
 
     data.audioFormat = getValue('Audio', 'Format');
     data.audioBitRate = getValue('Audio', 'Bit_rate') / 1000;

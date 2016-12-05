@@ -36,7 +36,7 @@ export function reduce(state = {}, action) {
       } else {
         newState.videoResolutionStatus = 'nice';
       }
-      
+
       //Video scantype
       newState.videoScanTypeStatus = newState.videoScanType === 'Progressive' ? 'perfect' : 'nice';
 
