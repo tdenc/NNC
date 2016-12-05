@@ -17,7 +17,7 @@ function mediainfo(paths) {
       case 'darwin':
         return 'mediainfo-osx';
       case 'win32':
-        return 'mediainfo-windows';
+        return 'mediainfo-windows.exe';
       case 'linux':
         return 'mediainfo-linux';
     }
