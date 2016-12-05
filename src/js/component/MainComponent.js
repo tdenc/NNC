@@ -2,12 +2,31 @@ import React from 'react';
 import { Container, Header, Table, Icon, Segment, Divider, Button } from 'semantic-ui-react'
 
 export class MainComponent extends React.Component {
+  starParams(status) {
+    if (status === 'perfect') {
+      return {color: 'yellow', icons: ['star', 'star', 'star']}
+    } else if (status === 'great') {
+      return {color: 'yellow', icons: ['star', 'star', 'empty star']}
+    } else if (status === 'nice') {
+      return {color: 'orange', icons: ['star', 'empty star', 'empty star']}
+    } else if (status === 'bad') {
+      return {color: 'red', icons: ['empty star', 'empty star', 'empty star']}
+    } else {
+      return {color: 'grey', icons: ['empty star', 'empty star', 'empty star']}
+    }
+  }
+
   row(title, value, status) {
+    const starts = this.starParams(status);
     return (
       <Table.Row negative={status === 'bad'} warning={status === 'nice'} positive={status === 'perfect'}>
         <Table.Cell>{title}</Table.Cell>
         <Table.Cell textAlign='center'>{value}</Table.Cell>
-        <Table.Cell textAlign='center'>{status}</Table.Cell>
+        <Table.Cell textAlign='center'>
+          <Icon color={starts.color} name={starts.icons[0]} />
+          <Icon color={starts.color} name={starts.icons[1]} />
+          <Icon color={starts.color} name={starts.icons[2]} />
+        </Table.Cell>
       </Table.Row>
 
     )
