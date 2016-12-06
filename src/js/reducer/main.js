@@ -6,14 +6,30 @@ export function reduce(state = {}, action) {
       const newState = action.data;
 
       //File format
-      newState.fileFormatStatus = newState.fileFormat === 'MPEG-4' ? 'perfect' : 'great';
+      const fileFormat = newState.fileFormat;
+      if (!fileFormat) {
+        newState.fileFormatStatus = false;
+      } else if (fileFormat === 'MPEG-4') {
+        newState.fileFormatStatus = 'perfect';
+      } else {
+        newState.fileFormatStatus = 'great';
+      }
 
       //File size
-      newState.fileSizeStatus = newState.fileSize <= 1.5 * 1024 ? 'perfect' : 'bad';
+      const fileSize = newState.fileSize;
+      if (!fileSize) {
+        newState.fileSizeStatus = false;
+      } else if (fileSize <= 1.5 * 1024) {
+        newState.fileSizeStatus = 'perfect';
+      } else {
+        newState.fileSizeStatus = 'bad';
+      }
 
       //File duration
       const fileDuration = newState.fileDuration;
-      if (fileDuration <= 15 * 60 + 59) {
+      if (!fileDuration) {
+        newState.fileDurationStatus = false;
+      } else if (fileDuration <= 15 * 60 + 59) {
         newState.fileDurationStatus = 'perfect';
       } else if (fileDuration <= 30 * 60 + 59) {
         newState.fileDurationStatus = 'great';
@@ -22,12 +38,21 @@ export function reduce(state = {}, action) {
       }
 
       //Video format
-      newState.videoFormatStatus = newState.videoFormat === 'AVC' ? 'perfect': 'great';
+      const videoFormat = newState.videoFormat;
+      if (!videoFormat) {
+        newState.videoFormatStatus = false;
+      } else if (videoFormat === 'AVC') {
+        newState.videoFormatStatus = 'perfect';
+      } else {
+        newState.videoFormatStatus = 'great';
+      }
 
       //Video resolution
       const width = newState.videoWidth;
       const height = newState.videoHeight;
-      if (width > 4096 || height > 2160) {
+      if (!width || !height) {
+        newState.videoResolutionStatus = false;
+      } if (width > 4096 || height > 2160) {
         newState.videoResolutionStatus = 'bad';
       } else if (width >= 1280 || height >= 720) {
         newState.videoResolutionStatus = 'perfect';
@@ -38,33 +63,62 @@ export function reduce(state = {}, action) {
       }
 
       //Video scantype
-      newState.videoScanTypeStatus = newState.videoScanType === 'Progressive' ? 'perfect' : 'nice';
+      const videoScanType = newState.videoScanType;
+      if (!videoScanType) {
+        newState.videoScanTypeStatus = false;
+      } else if (newState.videoScanType === 'Progressive') {
+        newState.videoScanTypeStatus = 'perfect';
+      } else {
+        newState.videoScanTypeStatus = 'nice';
+      }
 
       //Video bitrate
-      if (newState.videoBitRate >= 2000) {
+      const videoBitRate = newState.videoBitRate;
+      if (!videoBitRate) {
+        newState.videoBitRateStatus = false;
+      } else if (videoBitRate >= 2000) {
         newState.videoBitRateStatus = 'perfect';
-      } else if (newState.videoBitRate >= 1000) {
+      } else if (videoBitRate >= 1000) {
         newState.videoBitRateStatus = 'great';
       } else {
         newState.videoBitRateStatus = 'nice';
       }
 
       //Video framerate
-      newState.videoFrameRateModeStatus = newState.videoFrameRateMode === 'CFR' ? 'perfect' : 'nice';
-      if (newState.videoFrameRate > 60) {
+      const videoFrameRateMode = newState.videoFrameRateMode;
+      if (!videoFrameRateMode) {
+        newState.videoFrameRateModeStatus = false;
+      } else if (videoFrameRateMode === 'CFR') {
+        newState.videoFrameRateModeStatus = 'perfect';
+      } else {
+        newState.videoFrameRateModeStatus = 'nice';
+      }
+      const videoFrameRate = newState.videoFrameRate;
+      if (!videoFrameRate) {
+        newState.videoFrameRateStatus = false;
+      } else if (videoFrameRate > 60) {
         newState.videoFrameRateStatus = 'bad';
-      } else if (newState.videoFrameRate == 30 || newState.videoFrameRate == 24) {
+      } else if (videoFrameRate == 30 || videoFrameRate == 24) {
         newState.videoFrameRateStatus = 'perfect';
       } else {
         newState.videoFrameRateStatus = 'great';
       }
 
       //Audio format
-      newState.audioFormatStatus = newState.audioFormat === 'AAC' ? 'perfect' : 'great';
+      const audioFormat = newState.audioFormat;
+      if (!audioFormat) {
+        newState.audioFormatStatus = false;
+      } else if (audioFormat === 'AAC') {
+        newState.audioFormatStatus = 'perfect';
+      } else {
+        newState.audioFormatStatus = 'great';
+      }
 
       //Audio bitrate
       const audioBitRate = newState.audioBitRate;
-      if (audioBitRate >= 192) {
+      if (!audioBitRate) {
+        newState.audioBitRateStatus = false;
+      } else if (audioBitRate >= 192) {
         newState.audioBitRateStatus = 'perfect';
       } else if (audioBitRate >= 90) {
         newState.audioBitRateStatus = 'great';
@@ -72,12 +126,26 @@ export function reduce(state = {}, action) {
         newState.audioBitRateStatus = 'nice';
       }
 
+
       //Audio channel
-      newState.audioChannelStatus = newState.audioChannel <= 2 ? 'perfect' : 'bad';
+      const audioChannel = newState.audioChannel;
+      if (!audioChannel) {
+        newState.audioChannelStatus = false;
+      } else if (audioChannel <= 2) {
+        newState.audioChannelStatus = 'perfect';
+      } else {
+        newState.audioChannelStatus = 'bad';
+      }
 
       //Audio samplingrate
       const audioSamplingRate = newState.audioSamplingRate;
-      newState.audioSamplingRateStatus = audioSamplingRate == 44100 || audioSamplingRate == 48000 ? 'perfect' : 'nice';
+      if (!audioSamplingRate) {
+        newState.audioSamplingRateStatus = false;
+      } else if (audioSamplingRate == 44100 || audioSamplingRate == 48000) {
+        newState.audioSamplingRateStatus = 'perfect';
+      } else {
+        newState.audioSamplingRateStatus = 'nice';
+      }
 
       return newState;
 

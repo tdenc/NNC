@@ -30,12 +30,16 @@ function mediainfo(paths) {
 
     function getValue (type, value) {
       let element = xpath.select(`//track[@type='${type}']/${value}/text()`, doc);
-      return element[0].toString()
+      if (!element.length) {
+        return ''
+      } else {
+        return element[0].toString()
+      }
     }
 
     data.fileFormat = getValue('General', 'Format');
     data.fileSize = getValue('General', 'File_size') / 1048576;
-    data.fileDuration = getValue('Video', 'Duration') / 1000;
+    data.fileDuration = getValue('General', 'Duration') / 1000;
 
     data.videoFormat = getValue('Video', 'Format');
     data.videoWidth = getValue('Video', 'Width');
