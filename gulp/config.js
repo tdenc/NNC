@@ -20,7 +20,7 @@ export const config = {
     presets: ["es2015", "react", "stage-0"]
   },
   binary: {
-    src: './lib/mediainfo/bin/*',
+    src: ['./lib/mediainfo/bin/*', './icons/nnc.png'],
     dest: dest
   }
 };
