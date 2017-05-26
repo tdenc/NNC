@@ -29,10 +29,8 @@ export function reduce(state = {}, action) {
       const fileDuration = newState.fileDuration;
       if (!fileDuration) {
         newState.fileDurationStatus = false;
-      } else if (fileDuration <= 15 * 60 + 59) {
-        newState.fileDurationStatus = 'perfect';
       } else if (fileDuration <= 30 * 60 + 59) {
-        newState.fileDurationStatus = 'great';
+        newState.fileDurationStatus = 'perfect';
       } else {
         newState.fileDurationStatus = 'nice';
       }
