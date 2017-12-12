@@ -100,10 +100,10 @@ export function showSample() {
     fileDuration: 180,
 
     videoFormat: 'AVC',
-    videoWidth : 1280,
-    videoHeight : 720,
+    videoWidth : 1920,
+    videoHeight : 1080,
     videoScanType: 'Progressive',
-    videoBitRate: 2000,
+    videoBitRate: 3000,
     videoFrameRateMode: 'CFR',
     videoFrameRate: 30,
 
