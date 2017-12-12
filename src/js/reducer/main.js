@@ -145,6 +145,15 @@ export function reduce(state = {}, action) {
         newState.audioSamplingRateStatus = 'nice';
       }
 
+      //FullHD
+      if ((fileDuration <= 15 * 60 + 59) && (videoBitRate >= 3000) && (width >= 1920 || height >= 1080)) {
+        newState.fullHDStatus = 'perfect';
+        newState.fullHD = '対応';
+      } else {
+        newState.fullHDStatus = 'bad';
+        newState.fullHD = '非対応';
+      }
+
       return newState;
 
     default:

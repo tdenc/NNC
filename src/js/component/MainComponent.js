@@ -87,6 +87,7 @@ export class MainComponent extends React.Component {
             {this.row('音声ビットレート', audioBitRate, this.props.audioBitRateStatus)}
             {this.row('音声チャンネル数', audioChannel, this.props.audioChannelStatus)}
             {this.row('音声サンプリングレート', audioSamplingRate, this.props.audioSamplingRateStatus)}
+            {this.row('FullHD対応', this.props.fullHD, this.props.fullHDStatus)}
           </Table.Body>
         </Table>
         <Segment stacked textAlign='center'>
