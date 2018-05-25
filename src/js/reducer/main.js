@@ -19,7 +19,7 @@ export function reduce(state = {}, action) {
       const fileSize = newState.fileSize;
       if (!fileSize) {
         newState.fileSizeStatus = false;
-      } else if (fileSize <= 1.5 * 1024) {
+      } else if (fileSize <= 3.0 * 1024) {
         newState.fileSizeStatus = 'perfect';
       } else {
         newState.fileSizeStatus = 'bad';
@@ -74,7 +74,7 @@ export function reduce(state = {}, action) {
       const videoBitRate = newState.videoBitRate;
       if (!videoBitRate) {
         newState.videoBitRateStatus = false;
-      } else if (videoBitRate >= 2000) {
+      } else if (videoBitRate >= 3000) {
         newState.videoBitRateStatus = 'perfect';
       } else if (videoBitRate >= 1000) {
         newState.videoBitRateStatus = 'great';
@@ -96,7 +96,7 @@ export function reduce(state = {}, action) {
         newState.videoFrameRateStatus = false;
       } else if (videoFrameRate > 60) {
         newState.videoFrameRateStatus = 'bad';
-      } else if (videoFrameRate == 30 || videoFrameRate == 24) {
+      } else if (videoFrameRate == 60 || videoFrameRate == 30 || videoFrameRate == 24) {
         newState.videoFrameRateStatus = 'perfect';
       } else {
         newState.videoFrameRateStatus = 'great';
@@ -146,7 +146,7 @@ export function reduce(state = {}, action) {
       }
 
       //FullHD
-      if ((fileDuration <= 15 * 60 + 59) && (videoBitRate >= 3000) && (width >= 1920 || height >= 1080)) {
+      if ((fileDuration <= 30 * 60 + 59) && (videoBitRate >= 3000) && (width >= 1920 || height >= 1080)) {
         newState.fullHDStatus = 'perfect';
         newState.fullHD = '対応';
       } else {
